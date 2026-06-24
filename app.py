@@ -6,6 +6,10 @@ import os
 
 app = Flask(**name**)
 
+@app.route("/")
+def home():
+return "CBPG Watermark Server Running Successfully"
+
 @app.route("/watermark")
 def watermark():
 
@@ -17,10 +21,10 @@ if not pdf_url:
 
 try:
 
-    pdf_data = requests.get(pdf_url, timeout=30).content
+    response = requests.get(pdf_url, timeout=30)
 
     pdf = fitz.open(
-        stream=pdf_data,
+        stream=response.content,
         filetype="pdf"
     )
 
@@ -50,12 +54,12 @@ try:
                 filename=logo_path
             )
 
-        # Verified
+        # Verified Text
         page.insert_text(
             (75, rect.height - 18),
             "VERIFIED",
             fontsize=10,
-            color=(0.0, 0.6, 0.2)
+            color=(0.0, 0.6, 0.0)
         )
 
         # Portal Name
@@ -63,7 +67,7 @@ try:
             (145, rect.height - 18),
             "CBPG RESULT PORTAL",
             fontsize=11,
-            color=(0.1, 0.1, 0.1)
+            color=(0.0, 0.0, 0.0)
         )
 
         # Website
@@ -77,6 +81,7 @@ try:
     output = io.BytesIO()
 
     pdf.save(output)
+
     output.seek(0)
 
     return send_file(
@@ -88,10 +93,6 @@ try:
 except Exception as e:
     return f"Error: {str(e)}", 500
 ```
-
-@app.route("/")
-def home():
-return "CBPG Watermark Server Running Successfully"
 
 if **name** == "**main**":
 app.run(
