@@ -1,0 +1,224 @@
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+<title>CBPG Result - Check Semester Examination Result</title>
+
+<meta name="description"
+content="CBPG RESULT PORTAL. Affiliated with Maharaja SuhelDev State University, Azamgarh, Uttar Pradesh. Check Semester Examination Results Online.">
+
+<meta name="robots" content="index,follow,max-snippet:-1,max-image-preview:large">
+
+<meta property="og:title" content="CBPG Result Portal - Affiliated with Maharaja SuhelDev University">
+<meta property="og:description" content="Check Semester Examination Results Online">
+<meta property="og:type" content="website">
+<meta property="og:site_name" content="CBPG Result Portal">
+
+<meta name="application-name" content="CBPG Result Portal">
+
+<link rel="icon" type="image/png" sizes="512x512" href="favicon.png">
+<link rel="apple-touch-icon" href="favicon.png">
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+
+<style>
+
+
+</style>
+
+<script type="application/ld+json">
+{
+ "@context":"https://schema.org",
+ "@type":"WebSite",
+ "name":"CBPG Result Portal",
+ "url":"https://cbpgresult-com.github.io/"
+}
+</script>
+</head>
+
+<body>
+
+<div class="loading" id="loading">
+  <div class="search-loader">
+
+    <div class="paper left"></div>
+    <div class="paper center"></div>
+    <div class="paper right"></div>
+
+    <div class="glass">
+      🔍
+    </div>
+
+  </div>
+
+  <div class="loading-text">
+Fetching Result<span class="loading-dots"></span>
+</div>
+</div>
+
+<div class="portal-box">
+
+<div class="logo">
+<img src="https://i.ibb.co/NbcfLSm/po.jpg" alt="Logo">
+</div>
+<div class="session-text">2023-2027</div>
+<div class="title">
+<h1>CBPG RESULT PORTAL</h1>
+</div>
+<div class="subtitle2">
+Affiliated - Maharaja SuhelDev State University, Azamgarh, Uttar Pradesh
+</div>
+
+<div class="subtitle">
+<B><U>Check Semester Examination Result</U></B>
+</div>
+<div class="seo-content">
+CBPG RESULT PORTAL.
+Affiliated with Maharaja SuhelDev State University,
+Azamgarh, Uttar Pradesh.
+Check Semester Examination Results Online.
+</div>
+<div class="input-group">
+<select id="year">
+<option value="">Choose Result Year</option>
+<option value="2024">2024</option>
+<option value="2025">2025</option>
+<option value="2026">2026</option>
+
+</select>
+</div>
+<div class="input-group">
+
+
+
+<div class="input-group">
+<label></label>
+<select id="examType">
+    <option value="">Choose Exam Type</option>
+</select>
+</div>
+
+<div class="input-group">
+<label></label>
+<select id="course">
+<option value="">Choose Course</option>
+</select>
+</div>
+
+<div class="input-group">
+<select id="sem">
+<option value="">Choose Semester</option>
+</select>
+</div>
+
+<input
+type="tel"
+id="roll"
+placeholder="Enter Roll Number"
+inputmode="numeric"
+pattern="[0-9]*"
+autocomplete="off"
+maxlength="15"
+oninput="this.value=this.value.replace(/[^0-9]/g,'')">
+
+<div class="input-group">
+<label></label>
+<input
+type="text"
+id="father"
+placeholder="Enter Father or Mother Name">
+</div>
+
+<button class="search-btn"
+onclick="searchResult()">
+Search Result
+</button>
+
+<div id="error"></div>
+
+</div>
+
+<div class="popup" id="resultPopup">
+
+<div class="popup-box result-screen">
+<button class="popup-close" onclick="closePopup()">✕</button>
+
+<div class="success">✓</div>
+
+<div class="popup-title">
+Result Found
+</div>
+
+<div class="student-name" id="studentName"></div>
+
+<div class="student-semester" id="studentSemester"></div>
+
+<div id="pdfLoader" style="
+position:absolute;
+top:200px;
+left:15px;
+right:15px;
+bottom:80px;
+background:#fff;
+display:none;
+justify-content:center;
+align-items:center;
+flex-direction:column;
+z-index:999;
+border-radius:12px;
+">
+
+<div class="pdf-loading">
+
+<span></span>
+<span></span>
+<span></span>
+
+</div>
+
+<p class="pdf-text">
+Loading PDF...
+</p>
+
+</div>
+
+<iframe
+id="resultFrame"
+style="
+width:100%;
+height:75vh;
+border:none;
+border-radius:12px;
+margin-top:15px;
+background:#fff;">
+</iframe>
+
+<button
+id="actionBtn"
+class="download-btn"
+style="display:none"
+onclick="openFullResult()">
+</button>
+
+
+</div>
+
+</div>
+
+<div id="downloadLoader" class="top-download" aria-hidden="true">
+
+<div class="download-card">
+
+<div class="download-row">
+<span>📥 Downloading Result PDF</span>
+<span id="downloadPercent">0%</span>
+</div>
+
+<div class="progress-bar">
+<div id="progressFill"></div>
+</div>
+
+<div id="downloadText">
+Preparing file...
+</div>
+
+
