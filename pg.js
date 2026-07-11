@@ -391,23 +391,16 @@ resultLink =
 data.link || "";
 resultLink = data.link || "";
 
-const token = Math.random().toString(36).substring(2,12);
-
-const params = new URLSearchParams({
-    roll: roll,
-    year: year,
-    examType: examType,
-    course: course,
-    sem: sem,
-    father: father,
-    student: data.student || "",
-    link: data.link || ""
-});
-
 window.location.href =
 "result.html?" +
-params.toString() +
-"&token=" + token;
+new URLSearchParams({
+    roll,
+    year,
+    examType,
+    course,
+    sem,
+    father
+}).toString();
 
 setTimeout(function () {
 
