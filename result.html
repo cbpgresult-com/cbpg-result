@@ -239,6 +239,50 @@ Download Result
 <script>
 
 const API_URL="https://script.google.com/macros/s/AKfycbxE2TMnA4lpP_WgPa3_uf7wMXKIxFEkJof0tLUVUuIGUI7oVA6bn6QxQ1mZg3Ys2Oqu/exec";
+  const params = new URLSearchParams(location.search);
+
+const roll = params.get("roll");
+const year = params.get("year");
+const examType = params.get("examType");
+const course = params.get("course");
+const sem = params.get("sem");
+const father = params.get("father");
+
+fetch(
+API_URL +
+"?year=" + encodeURIComponent(year) +
+"&roll=" + encodeURIComponent(roll) +
+"&examType=" + encodeURIComponent(examType) +
+"&course=" + encodeURIComponent(course) +
+"&sem=" + encodeURIComponent(sem) +
+"&father=" + encodeURIComponent(father)
+)
+.then(r=>r.json())
+.then(data=>{
+
+if(data.status!="found"){
+
+document.querySelector(".success").innerHTML="❌ RESULT NOT FOUND";
+
+return;
+
+}
+
+document.getElementById("studentName").innerHTML="👨‍🎓 "+data.student;
+
+document.getElementById("rollNo").innerHTML="Roll No : "+roll;
+
+document.getElementById("semester").innerHTML="Semester : "+sem+" ("+year+")";
+
+document.getElementById("pdfFrame").src=data.link;
+
+document.getElementById("downloadBtn").onclick=function(){
+
+window.open(data.link,"_blank");
+
+};
+
+});
 
 </script>
 
