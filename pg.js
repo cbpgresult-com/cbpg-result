@@ -4,43 +4,6 @@ const SHOW_PROFESSIONAL_2026 = true
 const API_URL =
 "https://script.google.com/macros/s/AKfycbxE2TMnA4lpP_WgPa3_uf7wMXKIxFEkJof0tLUVUuIGUI7oVA6bn6QxQ1mZg3Ys2Oqu/exec";
 
-const p = new URLSearchParams(location.search);
-
-const roll = p.get("roll") || "";
-const year = p.get("year") || "";
-const examType = p.get("examType") || "";
-const course = p.get("course") || "";
-const sem = p.get("sem") || "";
-const father = p.get("father") || "";
-const student = p.get("student") || "";
-const pdf = p.get("link") || "";
-
-document.getElementById("studentName").innerHTML =
-"👨‍🎓 " + student;
-
-document.getElementById("rollNo").innerHTML =
-"Roll No : " + roll;
-
-document.getElementById("semester").innerHTML =
-"Semester : " + sem + " (" + year + ")";
-
-document.getElementById("pdfFrame").src = pdf;
-
-document.getElementById("downloadBtn").onclick = function(){
-
-window.open(pdf,"_blank");
-
-};
-
-const random =
-Math.random().toString(36).substring(2,10);
-
-history.replaceState(
-{},
-"",
-"/" + roll + "-" + random + ".result"
-);
-
 let resultLink = "";
 const YEAR_WISE_SEMESTERS = {
 
